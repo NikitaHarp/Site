@@ -3,20 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/Css_site_tools.css">
+    <link rel="stylesheet" href="/css/Sass_site_tools.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet">
     <title>Document</title>
 </head>
 <body>
-<h1>Hi</h1>
-<!-- hello my name is Nikita and im simple programmer-->
-<div class="block_1">
-    <div class="block_2">
-        <div class="block_">
-            
+    <header>
+        <div class="header-nav">
+            <div class="header-nav__icon">
+                <a href="index.html"><img src="/img/head_img/logo.png" alt="Logo icon"></a>
+            </div>
+            <div class="header-nav__navbar">
+                <nav class="navbar-list">
+                    <ul>
+                       <li>
+                        <a href="#">Главная</a>
+                       </li>
+                       <li>
+                        <a href="#">Каталог инструментов</a>
+                       </li>
+                       <li>
+                        <a href="#">FAQ</a>
+                       </li>
+                       <li>
+                        <a href="#">Отзывы</a>
+                       </li>
+                       <li>
+                        <a href="#">Контакты</a>
+                       </li>
+                    </ul>
+                </nav>
+            </div>
         </div>
-    </div>
-</div>
-
-<script src="JavaScript_site_tools.js"></script>    
+        <div class="header-slide1">
+            <div class="header-slide1__text">
+                <p class="header-slide1__sup-title">Зачем покупать? Возьми на время!</p>
+                <p class="header-slide1__title">Перфоратор Bosch 1150Вт</p>
+                <p class="header-slide1__sub-title">В сутки от <b>1000р</b></p>
+                <form action="#">
+                    <button class="header-slide1__button" type="submit">Взять на прокат</button>
+                </form>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="block-why-we">
+            <h2>Почему именно наша компания?</h2>
+            <div class="block-why-we__main-place">
+                <div class="block-why-we__first-fact">
+                    <div class="first-fact__img">
+                        <img src="/img/main-img/icon-verified.png" alt="icon delivery" width="100px">
+                    </div>
+                    <div class="first-fact__title">
+                        Доставим по адресу
+                        <div class="first-fact__sub-title">
+                            От суммы проката на 1000 рублей и более - 
+                            доставка бесплатная
+                        </div>
+                    </div>
+                </div>
+                <div class="block-why-we__second-fact">
+                    <div class="second-fact__img">
+                        <img src="/img/main-img/icon-fast.png" alt="icon delivery" width="100px">
+                    </div>
+                    <div class="second-fact__title">
+                        Доставим по адресу
+                        <div class="second-fact__sub-title">
+                            От суммы проката на 1000 рублей и более - 
+                            доставка бесплатная
+                        </div>
+                    </div>
+                </div>
+                <div class="block-why-we__third-fact">
+                    <div class="third-fact__img">
+                        <img src="/img/main-img/icon-delivery.png" alt="icon delivery" width="100px">
+                    </div>
+                    <div class="third-fact__title">
+                        Доставим по адресу
+                        <div class="third-fact__sub-title">
+                            От суммы проката на 1000 рублей и более - 
+                            доставка бесплатная
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+<script src="/js/JavaScript_site_tools.js"></script>    
 </body>
 </html>

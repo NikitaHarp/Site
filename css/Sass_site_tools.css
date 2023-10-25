@@ -589,7 +589,7 @@ footer {
     font-size: 21px;
   }
   .header-nav__icon a img {
-    width: 100px;
+    width: 100%;
   }
 }
 @media screen and (max-width: 767px) {
@@ -641,7 +641,7 @@ footer {
     position: relative;
   }
   .header-nav__icon a img {
-    width: 50px;
+    width: 100%;
   }
   .header-nav__burger {
     display: block;

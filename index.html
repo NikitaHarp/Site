@@ -22,16 +22,16 @@
                 <nav class="navbar-list">
                     <ul>
                         <li>
-                            <a href="#">Главная</a>
+                            <a data-anchor="#about" href="#">О нас</a>
                         </li>
                         <li>
-                            <a href="#">Каталог инструментов</a>
+                            <a data-anchor="#tools" href="#">Каталог инструментов</a>
                         </li>
                         <li>
-                            <a href="#">Частые вопросы</a>
+                            <a data-anchor="#faq" href="#">Частые вопросы</a>
                         </li>
                         <li>
-                            <a href="#">Контакты</a>
+                            <a data-anchor="#contacts" href="#">Контакты</a>
                         </li>
                     </ul>
                 </nav>
@@ -48,8 +48,8 @@
             </div>
         </div>
     </header>
-    <main>
-        <div class="content">
+    <main id="about">
+        <div  class="content">
             <div class="content__flex">
                 <div class="content__about-us">
                     <h2>About us</h2>
@@ -58,14 +58,14 @@
                         A, accusamus rerum. Voluptas in ut tempora placeat? Illum, cum illo?</p>
                 </div>
                 <div class="content__block-faq">
-                    <a href="#"><div class="content__faq-1">1</div></a>
-                    <a href="#"><div class="content__faq-2">2</div></a>
-                    <a href="#"><div class="content__faq-3">3</div></a>
-                    <a href="#"><div class="content__faq-4">4</div></a>
+                    <a data-anchor="#faq-1" href="#"><div class="content__faq-1">1</div></a>
+                    <a data-anchor="#faq-2" href="#"><div class="content__faq-2">2</div></a>
+                    <a data-anchor="#faq-3" href="#"><div class="content__faq-3">3</div></a>
+                    <a data-anchor="#faq-4" href="#"><div class="content__faq-4">4</div></a>
                 </div>
             </div>
         </div>
-        <div class="block-catalogs">
+        <div id="tools" class="block-catalogs">
             <h2>Каталог инструментов</h2>
             <div class="block-catalogs__blocks">
                 <div class="blocks-info">
@@ -224,12 +224,12 @@
                 </div>
             </div>
         </div>
-        <div class="info-buyers">
+        <div id="faq" class="info-buyers">
             <div class="info-buyers__title">
               <h3>Информация для арендаторов</h3>  
             </div>
             <div class="info-buyers__subtitles">
-                <div class="subtitles__block-1">
+                <div id="faq-1" class="subtitles__block-1">
                     <h4>Information</h4>
                     <p>
                         Lorem ipsum dolor, sit amet consectetur adipisicing elit.
@@ -261,7 +261,7 @@
                         aspernatur facilis hic!
                     </p>  
                 </div>
-                <div class="subtitles__block-2">
+                <div id="faq-2" class="subtitles__block-2">
                     <h4>Information</h4>
                     <p>
                         Lorem ipsum dolor, sit amet consectetur adipisicing elit.
@@ -293,7 +293,7 @@
                         aspernatur facilis hic!
                     </p> 
                 </div>
-                <div class="subtitles__block-3">
+                <div id="faq-3" class="subtitles__block-3">
                     <h4>Information</h4>
                     <p>
                         Lorem ipsum dolor, sit amet consectetur adipisicing elit.
@@ -325,7 +325,7 @@
                         aspernatur facilis hic!
                     </p> 
                 </div>
-                <div class="subtitles__block-4">
+                <div id="faq-4" class="subtitles__block-4">
                     <h4>Information</h4>
                     <p>
                         Lorem ipsum dolor, sit amet consectetur adipisicing elit.
@@ -361,7 +361,7 @@
         </div>
     </main>
     <footer>
-        <div class="footer-content">
+        <div id="contacts" class="footer-content">
             <div class="footer-content__about">
                 <h5>About us</h5>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. In quia saepe
@@ -371,22 +371,22 @@
             <div class="footer-content__navbar">
                 <ul>
                     <li>
-                        <a href="#">Главная</a>
+                        <a data-anchor="#about" href="#">О нас</a>
                     </li>
                     <li>
-                        <a href="#">Каталог инструментов</a>
+                        <a data-anchor="#tools" href="#">Каталог инструментов</a>
                     </li>
                     <li>
-                        <a href="#">Частые вопросы</a>
+                        <a data-anchor="#faq" href="#">Частые вопросы</a>
                     </li>
                     <li>
-                        <a href="#">Контакты</a>
+                        <a data-anchor="#contacts" href="#">Контакты</a>
                     </li>
                 </ul>
             </div>
             <div class="footer-content__link-socialweb">
-                <a href="#"><img src="img/footer-img/telegram.png" alt="telegram"></a>
-                <a href="#"><img src="img/footer-img/whatsapp.png" alt="Whatsapp"></a>
+                <a href="https://t.me/BobyZed"><img src="img/footer-img/telegram.png" alt="telegram"></a>
+                <a href="https://www.whatsapp.com/"><img src="img/footer-img/whatsapp.png" alt="Whatsapp"></a>
                 <p>+7 908 678-30-13</p>
             </div>
         </div>

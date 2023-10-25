@@ -10,6 +10,7 @@ $(document).ready(function(){
     });
     $('nav.navbar-list a').click(function(event){
         $('.header-nav__burger,.navbar-list').removeClass('active');
+        $('body').removeClass('lock');
     })
 });
 

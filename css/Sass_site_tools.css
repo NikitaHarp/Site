@@ -195,7 +195,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgb(231, 231, 231);
+  background-color: rgb(17, 47, 53);
 }
 
 .header-nav {
@@ -248,7 +248,7 @@ body {
   left: 0; /*изменить на right:0;, чтобы изменить направление подчёркивания */
   width: 0; /*задаём длинну линии до наведения курсора*/
   height: 4px; /*задаём ширину линии*/
-  background-color: rgb(83, 153, 165); /*задаём цвет линии*/
+  background-color: rgb(104, 186, 201); /*задаём цвет линии*/
   content: "";
   transition: width 0.3s ease-out; /*задаём время анимации*/
 }
@@ -262,7 +262,7 @@ body {
   width: 0;
 }
 .navbar-list a {
-  color: rgb(61, 61, 61);
+  color: rgb(228, 228, 228);
   text-transform: uppercase;
 }
 
@@ -273,7 +273,6 @@ body {
   background-color: rgba(0, 0, 0, 0.452);
   background-size: cover;
   min-width: 150px;
-  box-shadow: inset 0px 0px 20px black;
   height: 830px;
   display: flex;
   padding: 0px 15px;
@@ -613,7 +612,7 @@ footer {
     overflow: auto;
     width: 100%;
     height: 100%;
-    background-color: gray;
+    background-color: rgb(104, 186, 201);
     transition: all 0.3s ease 0s;
   }
   .navbar-list.active {
@@ -632,7 +631,7 @@ footer {
   .navbar-list ul li a {
     color: white;
     font-weight: 300;
-    font-size: 17px;
+    font-size: 18px;
   }
   .header-nav {
     position: relative;
@@ -668,7 +667,7 @@ footer {
   }
   .header-nav__burger span {
     position: absolute;
-    background-color: rgb(17, 47, 53);
+    background-color: rgb(104, 186, 201);
     transition: all 0.3s ease 0s;
     left: 0;
     top: 9px;
@@ -677,7 +676,7 @@ footer {
   }
   .header-nav__burger::before {
     position: absolute;
-    background-color: rgb(17, 47, 53);
+    background-color: rgb(104, 186, 201);
     transition: all 0.3s ease 0s;
     width: 100%;
     height: 3px;
@@ -686,7 +685,7 @@ footer {
   }
   .header-nav__burger::after {
     position: absolute;
-    background-color: rgb(17, 47, 53);
+    background-color: rgb(104, 186, 201);
     transition: all 0.3s ease 0s;
     width: 100%;
     height: 3px;

@@ -20,6 +20,12 @@ $('nav.navbar-list a').on('click', function(e){
     e.preventDefault();
   });
 
+  $('div.header-nav__icon a').on('click', function(e){
+    var anchor = $(this).data('anchor');
+    $('html,body').stop().animate({ scrollTop: $(anchor).offset().top - document.querySelector('.header-box').offsetHeight}, 1000);
+    e.preventDefault();
+  });
+
   $('div.footer-content__navbar a').on('click', function(e){
     var anchor = $(this).data('anchor');
     $('html,body').stop().animate({ scrollTop: $(anchor).offset().top - document.querySelector('.header-box').offsetHeight}, 1000);

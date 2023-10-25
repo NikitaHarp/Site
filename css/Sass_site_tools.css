@@ -211,6 +211,7 @@ body {
   display: none;
 }
 .header-nav__icon {
+  width: 121px;
   height: 84px;
   position: relative;
   z-index: 3;
@@ -589,7 +590,7 @@ footer {
     font-size: 21px;
   }
   .header-nav__icon a img {
-    width: 100%;
+    width: 121px;
   }
 }
 @media screen and (max-width: 767px) {
@@ -641,7 +642,8 @@ footer {
     position: relative;
   }
   .header-nav__icon a img {
-    width: 100%;
+    width: 80px;
+    height: 50px;
   }
   .header-nav__burger {
     display: block;

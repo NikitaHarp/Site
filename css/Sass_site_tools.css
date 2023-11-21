@@ -221,6 +221,27 @@ body {
   height: 100%;
 }
 
+.cart {
+  display: block;
+  position: relative;
+  z-index: 3;
+  cursor: pointer;
+}
+.cart img {
+  width: 30px;
+  height: 30px;
+}
+
+.quantity {
+  color: white;
+  background-color: rgb(104, 186, 201);
+  padding: 0px 7px;
+  font-size: 14px;
+  text-align: center;
+  font-weight: 500;
+  border-radius: 50px;
+}
+
 .navbar-list {
   font-weight: 500;
   position: relative;
@@ -340,6 +361,203 @@ main {
   letter-spacing: normal;
   word-spacing: normal;
   margin: 0px 0px 200px 0px;
+  position: relative;
+}
+
+.list {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 50px;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.list button {
+  font-size: 17px;
+  color: rgb(83, 153, 165);
+  text-transform: uppercase;
+  padding: 10px 20px;
+  background-color: white;
+  border: 2px solid rgb(83, 153, 165);
+  border-radius: 10px;
+  transition: 0.5s;
+  margin: 30px 0px 0px 0px;
+}
+.list button:last-child {
+  border: 2px solid rgb(17, 47, 53);
+  color: rgb(17, 47, 53);
+  margin: 0px 0px 0px 10px;
+}
+.list button:last-child:hover {
+  background-color: rgb(17, 47, 53);
+  color: white;
+  transition: 0.5s;
+}
+.list button:last-child:active {
+  background-color: rgb(17, 47, 53);
+  color: white;
+}
+.list button:hover {
+  background-color: rgb(83, 153, 165);
+  color: white;
+  transition: 0.5s;
+}
+.list button:active {
+  background-color: rgb(83, 153, 165);
+  color: white;
+}
+
+.box-list .list-block {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 2px solid rgb(104, 186, 201);
+  border-radius: 20px;
+  padding: 10px 10px;
+  margin: 0px 20px 10px 20px;
+  transition: 0.2s;
+  z-index: 3;
+}
+.box-list .list-block img {
+  width: 100px;
+}
+.box-list .list-block .card-button {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.box-list .list-block .card-button button {
+  width: 20px;
+  height: 20px;
+  text-align: center;
+  margin: 0px 10px;
+  background-color: rgb(104, 186, 201);
+  border-radius: 50%;
+}
+
+.card {
+  position: fixed;
+  border-radius: 30px;
+  border: 4px solid rgb(25, 66, 75);
+  padding: 0px 0px 0px 0px;
+  box-shadow: 0px 0px 10px rgb(44, 44, 44);
+  width: 600px;
+  height: 700px;
+  background-color: rgb(255, 255, 255);
+  margin: auto 0px;
+  top: 0;
+  bottom: 0;
+  right: -600px;
+  transition: 0.5s;
+  overflow: auto;
+  z-index: 2;
+  overflow: hidden;
+}
+.card .card-box {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 700px;
+}
+.card .card-box h4 {
+  color: rgb(83, 153, 165);
+  padding: 0px 0px 0px 20px;
+  font-size: 23px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  font-weight: 400;
+}
+.card .card-box .checkOut {
+  background-color: white;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  border-top: 1px solid rgb(128, 128, 128);
+  top: unset;
+  bottom: 0;
+  width: 592px;
+  height: auto;
+  padding: 17px 0px;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  flex-wrap: wrap;
+  position: absolute;
+  z-index: 10;
+}
+.card .card-box .checkOut .total {
+  background-color: rgb(255, 255, 255);
+  border: 2px dotted rgb(83, 153, 165);
+  border-radius: 10px;
+  margin: 0px 0px 10px 0px;
+  font-weight: 500;
+  font-size: 19px;
+  width: 200px;
+  height: 50px;
+  display: flex;
+  color: rgb(83, 153, 165);
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.card .card-box .checkOut .deposit {
+  display: flex;
+  background-color: rgb(255, 255, 255);
+  border: 2px dotted rgb(83, 153, 165);
+  color: rgb(83, 153, 165);
+  font-weight: 500;
+  font-size: 19px;
+  border-radius: 10px;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 50px;
+  position: relative;
+}
+.card .card-box .checkOut .send-button {
+  display: flex;
+  margin: 0px 0px 10px 0px;
+  align-items: center;
+  justify-content: center;
+}
+.card .card-box .checkOut .send-button button {
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(83, 153, 165);
+  border-radius: 10px;
+  color: rgb(17, 47, 53);
+  font-weight: 400;
+  font-size: 19px;
+  width: 200px;
+  height: 50px;
+  position: relative;
+}
+.card .card-box .checkOut .closeShopping {
+  position: relative;
+  background-color: rgb(255, 255, 255);
+  border: 2px solid rgb(83, 153, 165);
+  border-radius: 10px;
+  width: 200px;
+  height: 50px;
+  display: flex;
+  color: rgb(17, 47, 53);
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+.card .card-box .checkOut .closeShopping P {
+  font-size: 19px;
+  font-weight: 400;
+}
+
+.active .card {
+  right: 10px;
+}
+.block-catalogs {
+  position: relative;
 }
 
 .block-catalogs {
@@ -348,6 +566,7 @@ main {
   border-bottom: 1px solid rgb(194, 194, 194);
   margin: 0;
   padding: 0px 0px 200px 0px;
+  text-align: center;
 }
 .block-catalogs h2 {
   padding: 100px 0px 0px 0px;
@@ -412,13 +631,8 @@ main {
   color: rgb(90, 90, 90);
   text-align: center;
 }
-.blocks-info__button {
+.blocks-info button {
   margin: 30px 0px 0px 0px;
-}
-.blocks-info__button form {
-  text-align: center;
-}
-.blocks-info__button button {
   font-size: 17px;
   color: rgb(83, 153, 165);
   text-transform: uppercase;
@@ -428,12 +642,21 @@ main {
   border-radius: 10px;
   transition: 0.5s;
 }
-.blocks-info__button button:hover {
+.blocks-info button:hover {
+  background-color: rgb(17, 47, 53);
+  color: white;
+  transition: 0.5s;
+}
+.blocks-info button:active {
+  background-color: rgb(17, 47, 53);
+  color: white;
+}
+.blocks-info button:hover {
   background-color: rgb(83, 153, 165);
   color: white;
   transition: 0.5s;
 }
-.blocks-info__button button:active {
+.blocks-info button:active {
   background-color: rgb(83, 153, 165);
   color: white;
 }
@@ -544,10 +767,12 @@ footer {
   padding: 0px;
   margin: 0px 0px 5px 0px;
   line-height: 30px;
+  z-index: 1;
 }
 .footer-content__navbar ul li a::after {
   display: block;
   position: absolute;
+  z-index: 2;
   left: 0; /*изменить на right:0;, чтобы изменить направление подчёркивания */
   width: 0; /*задаём длинну линии до наведения курсора*/
   height: 4px; /*задаём ширину линии*/
@@ -715,5 +940,26 @@ footer {
     justify-content: center;
     margin: 0px 15px;
     padding: 100px 0px 15px;
+  }
+}
+@media screen and (max-width: 620px) {
+  .card {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    top: 0;
+    border: 0;
+    border-radius: 0;
+    right: -100%;
+    padding: 50px 0px 0px 0px;
+  }
+  .card .checkOut {
+    border-radius: 0;
+    width: 100%;
+    top: auto;
+    bottom: 0;
+  }
+  .active .card {
+    right: 0px;
   }
 }

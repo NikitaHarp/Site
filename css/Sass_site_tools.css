@@ -179,6 +179,13 @@ body {
   font-weight: 300;
   padding: 84px 0px 0px 0px;
 }
+body.disable-scroll {
+  overflow: hidden;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+}
 
 .header-box {
   position: fixed;
@@ -423,43 +430,59 @@ main {
 .box-list .list-block img {
   width: 100px;
 }
-.box-list .list-block .card-button {
+.box-list .list-block .block-normal-box {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  flex-direction: row;
+}
+.box-list .list-block .price-list-cart {
+  margin: 0px 0px 10px 0px;
+  font-size: 17px;
+}
+.box-list .list-block .name-list-cart {
+  font-weight: 700;
+  color: rgb(83, 153, 165);
+  margin: 0px 0px 10px 20px;
+}
+.box-list .list-block .card-button {
+  display: flex;
+  justify-content: center;
+  font-weight: 700;
 }
 .box-list .list-block .card-button button {
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
   text-align: center;
-  margin: 0px 10px;
+  margin: 0px 20px;
+  font-weight: 700;
+  font-size: 15px;
   background-color: rgb(104, 186, 201);
   border-radius: 50%;
+  padding: 0px 0px 5px 0px;
 }
 
 .card {
   position: fixed;
   border-radius: 30px;
   border: 4px solid rgb(25, 66, 75);
-  padding: 0px 0px 0px 0px;
   box-shadow: 0px 0px 10px rgb(44, 44, 44);
   width: 600px;
   height: 700px;
   background-color: rgb(255, 255, 255);
-  margin: auto 0px;
+  margin: 90px 0px auto 0px;
   top: 0;
   bottom: 0;
   right: -600px;
   transition: 0.5s;
   overflow: auto;
   z-index: 2;
-  overflow: hidden;
 }
 .card .card-box {
   position: relative;
   display: block;
   width: 100%;
-  height: 700px;
+  height: 100%;
+  overflow: auto;
 }
 .card .card-box h4 {
   color: rgb(83, 153, 165);
@@ -471,11 +494,12 @@ main {
   font-weight: 400;
 }
 .card .card-box .checkOut {
+  position: sticky;
   background-color: white;
   border-bottom-left-radius: 30px;
   border-bottom-right-radius: 30px;
   border-top: 1px solid rgb(128, 128, 128);
-  top: unset;
+  top: 542px;
   bottom: 0;
   width: 592px;
   height: auto;
@@ -485,7 +509,6 @@ main {
   justify-content: space-around;
   flex-direction: row;
   flex-wrap: wrap;
-  position: absolute;
   z-index: 10;
 }
 .card .card-box .checkOut .total {
@@ -556,6 +579,11 @@ main {
 .active .card {
   right: 10px;
 }
+
+.listCard {
+  overflow: auto;
+}
+
 .block-catalogs {
   position: relative;
 }
@@ -953,13 +981,51 @@ footer {
     right: -100%;
     padding: 50px 0px 0px 0px;
   }
-  .card .checkOut {
+  .card .card-box .checkOut {
+    bottom: 0;
+    top: auto;
+    width: 100%;
+  }
+  .active .card {
+    right: 0px;
+  }
+  .box-list .list-block .block-normal-box {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .box-list .list-block .price-list-cart {
+    font-size: 15px;
+  }
+  .box-list .list-block .name-list-cart {
+    margin: 0px 0px 10px 0px;
+  }
+}
+@media screen and (max-height: 790px) {
+  .card {
+    height: auto;
+  }
+  .card .card-box .checkOut {
     border-radius: 0;
     width: 100%;
     top: auto;
     bottom: 0;
   }
-  .active .card {
-    right: 0px;
+}
+@media screen and (max-width: 400px) {
+  .card .card-box .checkOut .total {
+    width: 120px;
+    font-size: 17px;
+  }
+  .card .card-box .checkOut .deposit {
+    width: 120px;
+    font-size: 17px;
+  }
+  .card .card-box .checkOut .send-button button {
+    width: 120px;
+    font-size: 17px;
+  }
+  .card .card-box .checkOut .closeShopping {
+    width: 120px;
+    font-size: 17px;
   }
 }

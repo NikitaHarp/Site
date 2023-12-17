@@ -56,14 +56,59 @@ $('nav.navbar-list a').on('click', function(e){
   let depositt = document.querySelector('.deposit')
   let quantity = document.querySelector('.quantity');
   
+ 
+
   openShopping.addEventListener('click', ()=>{
-      $('body').toggleClass('active');
-      $('body').toggleClass('lock');
-  })
+        $('body').addClass('active');
+  });
   closeShopping.addEventListener('click', ()=>{
-      body.classList.remove('active');
-  })
+        $('body').removeClass('active');
+  });
+
   
+
+  // function openCart (){
+  //   openShopping.addEventListener('click', ()=>{
+  //       $('body').addClass('active');
+  //     });
+  // };
+
+  // function closeCart (){
+  //   openShopping.addEventListener('click', ()=>{
+  //       $('body').removeClass('active');
+  //     });
+  // };
+
+
+  function disableScroll(){
+    let pagePosition = window.scrollY;
+    body.classList.add('disable-scroll');
+    body.dataset.position = pagePosition;
+    body.style.top = -pagePosition + 'px';
+  };
+  function enableScroll(){
+    let pagePosition = parseInt(body.dataset.position, 10);
+    body.style.top = 'auto'
+    body.classList.remove('disable-scroll');
+    window.scroll({top: pagePosition, left: 0});
+    body.removeAttribute('data-position');
+  };
+
+
+  
+  openShopping.addEventListener('click', (e)=>{
+    disableScroll();
+    e.currentTarget.style.pointerEvents = 'none';
+    closeShopping.style.pointerEvents = 'auto';
+  });
+
+  closeShopping.addEventListener('click', (e)=>{
+    enableScroll();
+    e.currentTarget.style.pointerEvents = 'none';
+    openShopping.style.pointerEvents = 'auto';
+  });
+
+
   let products = [
       {
           id: 1,
@@ -139,13 +184,7 @@ $('nav.navbar-list a').on('click', function(e){
     }
   ];
 
-  $(document).ready(function(){
-    if($('card').classList.contains('active')){
-        $('body').addClass('lock');
-    }else{
-        $('body').removeClass('lock');
-    }
-  })
+ 
 
   let listCards  = [];
   function initApp(){
@@ -186,12 +225,14 @@ $('nav.navbar-list a').on('click', function(e){
             newDiv.classList.add('list-block');
             newDiv.innerHTML = `
                 <div><img src="img/main-img/${value.image}"/></div>
-                <div>${value.name}</div>
-                <div>${value.price.toLocaleString()}р.</div>
-                <div class="card-button">
-                    <button onclick="changeQuantity(${key}, ${value.quantity - 1})">-</button>
-                    <div class="count">${value.quantity}</div>
-                    <button onclick="changeQuantity(${key}, ${value.quantity + 1})">+</button>
+                <div class='block-normal-box'>
+                  <div class='price-list-cart'>${value.name}</div>
+                  <div class='name-list-cart'>${value.price.toLocaleString()}р.</div>
+                  <div class="card-button">
+                      <button onclick="changeQuantity(${key}, ${value.quantity - 1})">-</button>
+                      <div class="count">${value.quantity}</div>
+                      <button onclick="changeQuantity(${key}, ${value.quantity + 1})">+</button>
+                  </div>
                 </div>`;
                 listCard.appendChild(newDiv);
         }

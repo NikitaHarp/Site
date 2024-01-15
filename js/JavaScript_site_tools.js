@@ -55,6 +55,7 @@ $('nav.navbar-list a').on('click', function(e){
   let total = document.querySelector('.total');
   let depositt = document.querySelector('.deposit')
   let quantity = document.querySelector('.quantity');
+  
  
 
   openShopping.addEventListener('click', ()=>{

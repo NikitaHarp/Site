@@ -81,7 +81,7 @@
                 <div class="checkOut">
                     <div class="total"><p>0 р</p></div>
                         <div class="send-button">
-                           <button class="btn-design">Оформить</button>
+                            <button class="btn-open-modal" type="submit">Оформить</button>
                         </div>
                     <div class="deposit">0 р</div>
                     <div class="closeShopping"><p>Закрыть</p></div>
@@ -226,10 +226,35 @@
         </div>
     </main>
     <div class="modal">
-        <div class="modal__container">
-            <button class="btn-reset modal__close">Закрыть</button>
-            <div class="modal-content">
-                Модальное окно
+        <div class="modal__container order-modal">
+            <button class="btn-close">X</button>
+            <div class="modal-content order-modal__content">
+                <div class="order-modal__top">
+                    <h5 class="order-modal__title">Оформление заказа</h5>
+                    <span class="order-modal__number">Заказ №00001</span>
+                </div>
+                <div class="order-modal__info">
+                    <div class="order-modal__quantity order-modal__info-item">Инструментов в заказе: <span>3 шт</span></div>
+                    <div class="order-modal__summ order-modal__info-item">Общая сумма заказа: <span>20 000р</span></div>
+                    <div class="order-modal__products order-modal__info-item">
+                        <button class="order-modal__btn">Состав заказа</button>
+                    </div>
+                </div>
+                <form action="#" class="order-modal__form order">
+                    <label class="order__label">
+                        <span class="order__text">Ваше имя</span>
+                        <input type="text" class="order__input">
+                    </label>
+                    <label class="order__label">
+                        <span class="order__text">Номер телефона</span>
+                        <input type="tel" class="order__input" placeholder="+7 (___)___-__-__">
+                    </label>
+                    <label class="order__label">
+                        <span class="order__text">Электронная почта</span>
+                        <input type="email" class="order__input" placeholder="example@mail.ru">
+                    </label>
+                    <button class="order__btn btn">Оформить заказ</button>
+                </form>
             </div>
         </div>
     </div>
@@ -264,7 +289,7 @@
             </div>
         </div>
     </footer>
-<script src="libs/modal.js"></script>
+<script src="js/modal.js"></script>
 <script src="js/jquery-3.7.1.js"></script>
 <script src="js/JavaScript_site_tools.js"></script>    
 </body>

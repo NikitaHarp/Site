@@ -95,6 +95,8 @@
     }
     &__info{
         border: 1px solid #d9d9d9;
+        height: 300px;
+        overflow: auto;
         margin-bottom: 20px;
         border-radius: 4px;
         padding: 34px 40px;
@@ -132,6 +134,9 @@
 
 .order-product{
     display: block;
+    &:not(:last-child){
+        margin-bottom: 20px;
+    }
     
     &__product{
         display: flex;

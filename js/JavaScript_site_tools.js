@@ -55,6 +55,7 @@ $('nav.navbar-list a').on('click', function(e){
   let total = document.querySelector('.total');
   let depositt = document.querySelector('.deposit')
   let quantity = document.querySelector('.quantity');
+  let deleteCard = document.querySelector('.delete-card');
   
  
 
@@ -211,6 +212,7 @@ $('nav.navbar-list a').on('click', function(e){
       }
       reloadCard();
   }
+  
   function reloadCard(){
     listCard.innerHTML = '';
     let count = 0;
@@ -228,11 +230,7 @@ $('nav.navbar-list a').on('click', function(e){
                 <div class='block-normal-box'>
                   <div class='price-list-cart'>${value.name}</div>
                   <div class='name-list-cart'>${value.price.toLocaleString()}р.</div>
-                  <div class="card-button">
-                      <button onclick="changeQuantity(${key}, ${value.quantity - 1})">-</button>
-                      <div class="count">${value.quantity}</div>
-                      <button onclick="changeQuantity(${key}, ${value.quantity + 1})">+</button>
-                  </div>
+                  <button onclick="changeQuantity(${key}), deleteModalQuantity(${key})" class='delete-card'>X</button>
                 </div>`;
                 listCard.appendChild(newDiv);
         }
@@ -240,17 +238,13 @@ $('nav.navbar-list a').on('click', function(e){
     total.innerText = 'Цена: ' + totalPrice.toLocaleString() + 'р.';
     depositt.innerText = 'Залог: ' + totalDeposit.toLocaleString() + 'р.';
     quantity.innerText = count;
-  };
-function changeQuantity(key, quantity){
-    if(quantity == 0){
-        delete listCards[key];
-    }else{
-        listCards[key].quantity = quantity;
-        listCards[key].price = quantity * products[key].price;
-        listCards[key].deposit = quantity * products[key].deposit;
+    };
+
+    function changeQuantity(key){
+        delete listCards[key]; 
+      reloadCard();
     }
-    reloadCard();
-  }
+
 
 
 //!modal window
@@ -261,6 +255,9 @@ let btnOpenModal = document.querySelector('.btn-open-modal');
 let removeCart = document.querySelector('body');
 let orderModalBtn = document.querySelector('.order-modal__btn');
 let orderModalList = document.querySelector('.order-modal__list');
+let totalModal = document.querySelector('.order-modal__summ span');
+let depositModal = document.querySelector('.order-modal__deposit span');
+let quantityModal = document.querySelector('.order-modal__quantity span');
 
 btnOpenModal.addEventListener('click', () => {
     modal.classList.add('active-modal');
@@ -302,13 +299,20 @@ function addToModal(key){
   if(modalLists[key] == null){
       // copy product form list to list card
       modalLists[key] = JSON.parse(JSON.stringify(products[key]));
-      modalLists[key].quantity = 1;
+      modalLists[key].quantityModal = 1;
   };
   reloadModal();
 }
 function reloadModal(){
   orderModalList.innerHTML = '';
-  modalLists.forEach((value)=>{
+  let totalPriceModal = 0;
+  let totalDepositModal = 0;
+  let countModal = 0;
+  modalLists.forEach((value, key)=>{
+      totalDepositModal = totalDepositModal + value.deposit;
+      totalPriceModal = totalPriceModal + value.price;
+      countModal = countModal + value.quantityModal;
+      console.log(totalDepositModal, totalPriceModal, countModal);
       if(value != null){
         let newLi = document.createElement('li');
           newLi.classList.add('order-product');
@@ -319,10 +323,18 @@ function reloadModal(){
                     <h3 class="order-product__title">${value.name}</h3>
                     <span class="order-product__price">${value.price.toLocaleString()}р.</span>
                   </div>
-                <button class="order-product__delete">Удалить</button>
+                <button onclick="changeQuantity(${key}), deleteModalQuantity(${key})" class="order-product__delete">Удалить</button>
             </article>`;
         orderModalList.appendChild(newLi);  
-      }
-  })
+      };
+  });
+  
+    totalModal.innerText = totalPriceModal.toLocaleString() + 'р.';
+    depositModal.innerText = totalDepositModal.toLocaleString() + 'р.';
+    quantityModal.innerText = countModal + 'шт.';
 };
 
+function deleteModalQuantity(key){
+  delete modalLists[key]; 
+reloadModal();
+}

@@ -260,6 +260,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 .order-modal__info {
   border: 1px solid #d9d9d9;
+  height: 300px;
+  overflow: auto;
   margin-bottom: 20px;
   border-radius: 4px;
   padding: 34px 40px;
@@ -281,6 +283,9 @@ h1, h2, h3, h4, h5, h6 {
 
 .order-product {
   display: block;
+}
+.order-product:not(:last-child) {
+  margin-bottom: 20px;
 }
 .order-product__product {
   display: flex;

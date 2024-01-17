@@ -198,7 +198,7 @@ $('nav.navbar-list a').on('click', function(e){
             </div>
             <div class="blocks-info__brand">${value.name}</div>
             <div class="blocks-info__description">${value.description}</div>
-            <button onclick="addToCard(${key})">Add To Card</button>`;
+            <button onclick="addToCard(${key}),addToModal(${key})">Add To Card</button>`;
           list.appendChild(newDiv);
       })
   }
@@ -236,11 +236,11 @@ $('nav.navbar-list a').on('click', function(e){
                 </div>`;
                 listCard.appendChild(newDiv);
         }
-    })
+    });
     total.innerText = 'Цена: ' + totalPrice.toLocaleString() + 'р.';
     depositt.innerText = 'Залог: ' + totalDeposit.toLocaleString() + 'р.';
     quantity.innerText = count;
-  }
+  };
 function changeQuantity(key, quantity){
     if(quantity == 0){
         delete listCards[key];
@@ -251,3 +251,78 @@ function changeQuantity(key, quantity){
     }
     reloadCard();
   }
+
+
+//!modal window
+
+let modal = document.querySelector('.modal');
+let closeBtnModal = document.querySelector('.btn-close');
+let btnOpenModal = document.querySelector('.btn-open-modal');
+let removeCart = document.querySelector('body');
+let orderModalBtn = document.querySelector('.order-modal__btn');
+let orderModalList = document.querySelector('.order-modal__list');
+
+btnOpenModal.addEventListener('click', () => {
+    modal.classList.add('active-modal');
+    removeCart.classList.remove('active');
+    removeCart.classList.remove('disable-scroll');
+    enableScroll();
+    e.currentTarget.style.pointerEvents = 'none';
+    openShopping.style.pointerEvents = 'auto';
+    // disableScroll();
+    // e.currentTarget.style.pointerEvents = 'none';
+    // closeShopping.style.pointerEvents = 'auto';
+});
+closeBtnModal.addEventListener('click', () =>{
+    modal.classList.remove('active-modal');
+    openShopping.style.pointerEvents = 'auto';
+    // enableScroll();
+    // e.currentTarget.style.pointerEvents = 'none';
+    // openShopping.style.pointerEvents = 'auto';
+});
+
+
+let flag = 0;
+orderModalBtn.addEventListener('click', (e) => {
+    if (flag == 0){
+        orderModalBtn.classList.add('open');
+        orderModalList.style.display = 'block';
+        flag = 1;
+    } else{
+        orderModalBtn.classList.remove('open');
+        orderModalList.style.display = 'none';
+        flag = 0;
+    }
+});
+
+
+
+let modalLists = [];
+function addToModal(key){
+  if(modalLists[key] == null){
+      // copy product form list to list card
+      modalLists[key] = JSON.parse(JSON.stringify(products[key]));
+      modalLists[key].quantity = 1;
+  };
+  reloadModal();
+}
+function reloadModal(){
+  orderModalList.innerHTML = '';
+  modalLists.forEach((value)=>{
+      if(value != null){
+        let newLi = document.createElement('li');
+          newLi.classList.add('order-product');
+          newLi.innerHTML = `
+            <article class="order-product__product">
+                <img src="img/main-img/${value.image}" alt="" class="order-product__img">
+                  <div class="order-product__text">
+                    <h3 class="order-product__title">${value.name}</h3>
+                    <span class="order-product__price">${value.price.toLocaleString()}р.</span>
+                  </div>
+                <button class="order-product__delete">Удалить</button>
+            </article>`;
+        orderModalList.appendChild(newLi);  
+      }
+  })
+};
+

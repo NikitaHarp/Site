@@ -81,7 +81,7 @@
                 <div class="checkOut">
                     <div class="total"><p>0 р</p></div>
                         <div class="send-button">
-                            <button class="btn-open-modal" type="submit">Оформить</button>
+                            <button onclick="addToModal({key})" class="btn-open-modal" type="submit">Оформить</button>
                         </div>
                     <div class="deposit">0 р</div>
                     <div class="closeShopping"><p>Закрыть</p></div>
@@ -238,6 +238,9 @@
                     <div class="order-modal__summ order-modal__info-item">Общая сумма заказа: <span>20 000р</span></div>
                     <div class="order-modal__products order-modal__info-item">
                         <button class="order-modal__btn">Состав заказа</button>
+                        <ul class="order-modal__list">
+                            
+                        </ul>
                     </div>
                 </div>
                 <form action="#" class="order-modal__form order">

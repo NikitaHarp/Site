@@ -248,6 +248,9 @@ h1, h2, h3, h4, h5, h6 {
   background-repeat: no-repeat;
   background-image: url("/img/modal/turn_down.png");
 }
+.order-modal__btn.open::after {
+  transform: translateY(-50%) rotate(180deg);
+}
 .order-modal__number {
   font-weight: 400;
   font-size: 12px;
@@ -267,6 +270,58 @@ h1, h2, h3, h4, h5, h6 {
 }
 .order-modal__info-item:not(:last-child) {
   margin-bottom: 15px;
+}
+.order-modal__list {
+  display: none;
+  padding: 20px 0px;
+}
+.order-modal__item:not(:last-child) {
+  margin-bottom: 14px;
+}
+
+.order-product {
+  display: block;
+}
+.order-product__product {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.order-product__img {
+  max-width: 70px;
+  max-height: 70px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-right: 10px;
+}
+.order-product__text {
+  margin-right: 10px;
+}
+.order-product__title {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 20px;
+  color: #4d4d4d;
+  margin-bottom: 5px;
+}
+.order-product__price {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+  color: #4d4d4d;
+}
+.order-product__delete {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 20px;
+  text-align: right;
+  color: #808080;
 }
 
 .modal-content {

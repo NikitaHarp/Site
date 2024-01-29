@@ -226,7 +226,7 @@ $('nav.navbar-list a').on('click', function(e){
             let newDiv = document.createElement('li');
             newDiv.classList.add('list-block');
             newDiv.innerHTML = `
-                <div><img src="img/main-img/${value.image}"/></div>
+                <div class='img-tools-list'><img src="img/main-img/${value.image}"/></div>
                 <div class='block-normal-box'>
                   <div class='price-list-cart'>${value.name}</div>
                   <div class='name-list-cart'>${value.price.toLocaleString()}р.</div>
@@ -258,6 +258,11 @@ let orderModalList = document.querySelector('.order-modal__list');
 let totalModal = document.querySelector('.order-modal__summ span');
 let depositModal = document.querySelector('.order-modal__deposit span');
 let quantityModal = document.querySelector('.order-modal__quantity span');
+let productArray = [];
+
+const priceWithoutSpaces = (str) => {
+	return str.replace(/\s/g, '');
+};
 
 btnOpenModal.addEventListener('click', () => {
     modal.classList.add('active-modal');
@@ -332,9 +337,62 @@ function reloadModal(){
     totalModal.innerText = totalPriceModal.toLocaleString() + 'р.';
     depositModal.innerText = totalDepositModal.toLocaleString() + 'р.';
     quantityModal.innerText = countModal + 'шт.';
+
+  saveData();
+
 };
+function saveData(){
+    let array = orderModalList.querySelector('.order-product').children;
+    for (item of array){
+      let imgOrder = item.querySelector('.order-product__img').getAttribute('src');
+      console.log(imgOrder);
+      let titleOrder = item.querySelector('.order-product__title').textContent;
+      console.log(titleOrder);
+      let priceOrder = priceWithoutSpaces(item.querySelector('.order-product__price').textContent);
+      console.log(priceOrder);
+
+
+      let obj = {};
+      obj.titelOrder = titleOrder;
+      obj.priceOrder = priceOrder;
+      productArray.push(obj);
+      console.log(obj)
+    };
+    
+}
+
+
 
 function deleteModalQuantity(key){
   delete modalLists[key]; 
 reloadModal();
 }
+
+
+document.querySelector('.order').addEventListener('submit', (e)=>{
+  e.preventDefault();
+  let self = e.currentTarget;
+  let formData = new FormData(self);
+  let name = self.querySelector('[name="Имя"]').value;
+  let tel = self.querySelector('[name="Телефон"]').value;
+  let mail = self.querySelector('[name="Email"]').value;
+  formData.append('Товары', JSON.stringify(productArray));
+  formData.append('Имя', name);
+  formData.append('Телефон', tel);
+  formData.append('Email', mail);
+
+  let xhr = new XMLHttpRequest();
+
+  xhr.onreadystatechange = function(){
+    if (xhr.readyState === 4){
+      if(xhr.status === 200){
+        console.log('Отправлено')
+      }
+    }
+  }
+
+  xhr.open('POST', 'mail.php', true);
+  xhr.send(formData);
+
+  self.reset();
+});
